@@ -1,0 +1,9 @@
+<h2>Measures</h2>
+
+<ul>
+  <% @septic_tank_levels.each do |entry| %>
+  <li class="no-bullet">
+    <strong><%= entry.level %></strong> at <%= entry.created_at %> 
+  </li>
+  <% end %>
+</ul>
