@@ -1,0 +1,2 @@
+class SepticTankLevel < ApplicationRecord
+end

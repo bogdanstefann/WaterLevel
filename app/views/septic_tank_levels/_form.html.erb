@@ -1,0 +1,27 @@
+<%= form_with(model: septic_tank_level) do |form| %>
+  <% if septic_tank_level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(septic_tank_level.errors.count, "error") %> prohibited this septic_tank_level from being saved:</h2>
+
+      <ul>
+        <% septic_tank_level.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.text_field :level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :measured_time %>
+    <%= form.datetime_select :measured_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

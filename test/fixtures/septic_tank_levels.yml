@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: 1.5
+  measured_time: 2021-11-05 11:32:48
+
+two:
+  level: 1.5
+  measured_time: 2021-11-05 11:32:48

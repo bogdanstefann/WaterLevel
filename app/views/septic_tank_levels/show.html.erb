@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @septic_tank_level.level %>
+</p>
+
+<p>
+  <strong>Measured time:</strong>
+  <%= @septic_tank_level.measured_time %>
+</p>
+
+<%= link_to 'Edit', edit_septic_tank_level_path(@septic_tank_level) %> |
+<%= link_to 'Back', septic_tank_levels_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Septic Tank Levels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>Measured time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @septic_tank_levels.each do |septic_tank_level| %>
+      <tr>
+        <td><%= septic_tank_level.level %></td>
+        <td><%= septic_tank_level.measured_time %></td>
+        <td><%= link_to 'Show', septic_tank_level %></td>
+        <td><%= link_to 'Edit', edit_septic_tank_level_path(septic_tank_level) %></td>
+        <td><%= link_to 'Destroy', septic_tank_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Septic Tank Level', new_septic_tank_level_path %>
