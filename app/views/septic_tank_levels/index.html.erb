@@ -8,7 +8,8 @@
   <thead>
     <tr>
       <th>Level</th>
-      <th>Measured time</th>
+      <th>Created</th>
+      <th>Time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,10 +18,13 @@
     <% @septic_tank_levels.each do |septic_tank_level| %>
       <tr>
         <td><%= septic_tank_level.level %></td>
-        <td><%= septic_tank_level.measured_time %></td>
+        <td><%= time_ago_in_words(septic_tank_level.created_at) %> ago</td>
+        <td><%= septic_tank_level.created_at.strftime("%d.%m.%Y %T") %></td>
         <td><%= link_to 'Show', septic_tank_level %></td>
-        <td><%= link_to 'Edit', edit_septic_tank_level_path(septic_tank_level) %></td>
-        <td><%= link_to 'Destroy', septic_tank_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.admin %>
+          <td><%= link_to 'Edit', edit_septic_tank_level_path(septic_tank_level) %></td>
+          <td><%= link_to 'Destroy', septic_tank_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
