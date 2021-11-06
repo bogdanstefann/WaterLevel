@@ -6,4 +6,6 @@
   </li>
   <% end %>
 </ul>
+
+<%= line_chart @septic_tank_levels.map{ |entry| [entry.created_at, entry.level]}, xtitle: 'Date', ytitle: 'Level'%>
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
