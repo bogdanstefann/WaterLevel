@@ -1,5 +1,4 @@
 <h2>Measures</h2>
-
 <ul>
   <% @septic_tank_levels.each do |entry| %>
   <li class="no-bullet">
@@ -7,3 +6,4 @@
   </li>
   <% end %>
 </ul>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
