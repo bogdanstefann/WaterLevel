@@ -4,7 +4,7 @@ class SepticTankLevelsController < ApplicationController
 
   # GET /septic_tank_levels or /septic_tank_levels.json
   def index
-    @septic_tank_levels = SepticTankLevel.all.reverse
+    @septic_tank_levels = SepticTankLevel.order(created_at: :desc)
   end
 
   # GET /septic_tank_levels/1 or /septic_tank_levels/1.json
