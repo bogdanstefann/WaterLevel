@@ -4,7 +4,7 @@ class SepticTankLevelsController < ApplicationController
 
   # GET /septic_tank_levels or /septic_tank_levels.json
   def index
-    @septic_tank_levels = get_sort_by_date
+    @septic_tank_levels = SepticTankLevel.all.reverse
   end
 
   # GET /septic_tank_levels/1 or /septic_tank_levels/1.json
@@ -35,7 +35,7 @@ class SepticTankLevelsController < ApplicationController
   # PATCH/PUT /septic_tank_levels/1 or /septic_tank_levels/1.json
   def update
     respond_to do |format|
-      if @septic_tank_level.update(septic_tank_level_params
+      if @septic_tank_level.update(septic_tank_level_params)
         format.html { redirect_to @septic_tank_level, notice: 'Septic tank level was successfully updated.' }
         format.json { render :show, status: :ok, location: @septic_tank_level }
       else
@@ -64,9 +64,5 @@ class SepticTankLevelsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def septic_tank_level_params
     params.require(:septic_tank_level).permit(:level, :measured_time)
-  end
-
-  def get_sort_by_date
-    SepticTankLevel.all.reverse
   end
 end
