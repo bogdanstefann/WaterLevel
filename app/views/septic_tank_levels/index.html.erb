@@ -4,6 +4,10 @@
 
 <h1>Septic Tank Levels</h1>
 
+<div class="line-chart">
+  <%= line_chart @septic_tank_levels.map{ |entry| [entry.created_at, entry.level]}, xtitle: 'Date', ytitle: 'Level'%>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -33,6 +37,3 @@
 <br>
 
 <%= link_to 'New Septic Tank Level', new_septic_tank_level_path %>
-<div class="line-chart">
-  <%= line_chart @septic_tank_levels.map{ |entry| [entry.created_at, entry.level]}, xtitle: 'Date', ytitle: 'Level'%>
-</div>
