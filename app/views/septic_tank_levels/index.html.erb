@@ -1,19 +1,27 @@
+<nav>
+    <div class="nav-wrapper blue darken-1">
+      <a href="#" class="brand-logo margin-left">WaterLevel</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Hello, <%= current_user.email %> <strong><%= current_user.admin ? "(admin)" : "" %></strong></a></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+  </nav>
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-
-<h1>Septic Tank Levels</h1>
+<h2>Septic Tank Levels</h2>
 
 <div class="line-chart">
-  <%= line_chart @septic_tank_levels.map{ |entry| [entry.created_at, entry.level]}, xtitle: 'Date', ytitle: 'Level'%>
+  <%= line_chart @septic_tank_levels.map{ |entry| [entry.created_at, entry.level]}, xtitle: 'Date', ytitle: 'Level', colors: ["#1e88e5", "#666"]%>
 </div>
 
 <table>
   <thead>
     <tr>
-      <th>Level</th>
-      <th>Created</th>
       <th>Time</th>
+      <th>Created</th>
+      <th>Level</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,9 +29,9 @@
   <tbody>
     <% @septic_tank_levels.each do |septic_tank_level| %>
       <tr>
-        <td><%= septic_tank_level.level %></td>
+        <td><%= local_time(septic_tank_level.created_at, format: '%B %e, %Y %l:%M%P') %></td>
+        <td><%= septic_tank_level.level.to_i %></td>
         <td><%= time_ago_in_words(septic_tank_level.created_at) %> ago</td>
-        <td><%= septic_tank_level.created_at.strftime("%d.%m.%Y %T") %></td>
         <td><%= link_to 'Show', septic_tank_level %></td>
         <% if current_user.admin %>
           <td><%= link_to 'Edit', edit_septic_tank_level_path(septic_tank_level) %></td>

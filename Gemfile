@@ -24,6 +24,9 @@ gem 'devise'
 gem "chartkick"
 gem 'groupdate'
 
+gem 'materialize-sass', '~> 1.0.0'
+gem 'local_time'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
